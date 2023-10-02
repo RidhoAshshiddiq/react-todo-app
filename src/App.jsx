@@ -1,17 +1,14 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css'
 
-
+import React, { useState } from 'react';
 
 function TodoApp() {
-  // State untuk menyimpan daftar tugas
   const [todos, setTodos] = useState([]);
-  // State untuk menyimpan tugas yang sedang ditulis
   const [todo, setTodo] = useState('');
 
-  // Menambahkan tugas baru
   const addTodo = () => {
     if (todo.trim() !== '') {
       setTodos([...todos, todo]);
@@ -19,7 +16,6 @@ function TodoApp() {
     }
   };
 
-  // Menghapus tugas berdasarkan index
   const removeTodo = (index) => {
     const newTodos = todos.filter((_, i) => i !== index);
     setTodos(newTodos);
