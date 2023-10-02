@@ -3,59 +3,50 @@
 // import viteLogo from '/vite.svg'
 // import './App.css'
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class TodoApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [],
-      newTodo: ''
-    };
-  }
+function TodoApp() {
+  // State untuk menyimpan daftar tugas
+  const [todos, setTodos] = useState([]);
+  // State untuk menyimpan tugas yang sedang ditulis
+  const [todo, setTodo] = useState('');
 
-  handleChange = (event) => {
-    this.setState({ newTodo: event.target.value });
-  }
-
-  addTodo = () => {
-    if (this.state.newTodo !== '') {
-      this.setState((prevState) => ({
-        todos: [...prevState.todos, this.state.newTodo],
-        newTodo: ''
-      }));
+  // Menambahkan tugas baru
+  const addTodo = () => {
+    if (todo.trim() !== '') {
+      setTodos([...todos, todo]);
+      setTodo('');
     }
-  }
+  };
 
-  deleteTodo = (index) => {
-    const newTodos = [...this.state.todos];
-    newTodos.splice(index, 1);
-    this.setState({ todos: newTodos });
-  }
+  // Menghapus tugas berdasarkan index
+  const removeTodo = (index) => {
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
 
-  render() {
-    return (
+  return (
+    <div>
+      <h1>My Todo List</h1>
       <div>
-        <h1>To-Do List</h1>
         <input
           type="text"
-          placeholder="Add a new task"
-          value={this.state.newTodo}
-          onChange={this.handleChange}
+          placeholder="Add your Todo"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
         />
-        <button onClick={this.addTodo}>Add To Do</button>
-        <ul>
-          {this.state.todos.map((todo, index) => (
-            <li key={index}>
-              {todo}
-              <button onClick={() => this.deleteTodo(index)}>Delete</button>
-            </li>
-          ))}
-        </ul>
+        <button onClick={addTodo}>Add Todo</button>
       </div>
-    );
-  }
+      <ul>
+        {todos.map((task, index) => (
+          <li key={index}>
+            {task}
+            <button onClick={() => removeTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default TodoApp;
-
