@@ -1,8 +1,9 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css'
 
+<<<<<<< HEAD
 // import React, { Component } from 'react';
 
 // class TodoApp extends Component {
@@ -69,11 +70,23 @@ function TodoApp() {
   const addTodo = () => {
     if (todo.trim() !== '') {
       setTodos([...todos, { text: todo, completed: false }]);
+=======
+import React, { useState } from 'react';
+
+function TodoApp() {
+  const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState('');
+
+  const addTodo = () => {
+    if (todo.trim() !== '') {
+      setTodos([...todos, todo]);
+>>>>>>> 1cb32f3b33fafc3656feb6e1aaff70bf89551596
       setTodo('');
     }
   };
 
   const removeTodo = (index) => {
+<<<<<<< HEAD
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
@@ -122,6 +135,32 @@ function TodoApp() {
       {todos.some(task => task.completed) && (
         <button onClick={clearCompleted}>Hapus yang Sudah Selesai</button>
       )}
+=======
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
+  return (
+    <div>
+      <h1>My Todo List</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Add your Todo"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+        />
+        <button onClick={addTodo}>Add Todo</button>
+      </div>
+      <ul>
+        {todos.map((task, index) => (
+          <li key={index}>
+            {task}
+            <button onClick={() => removeTodo(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+>>>>>>> 1cb32f3b33fafc3656feb6e1aaff70bf89551596
     </div>
   );
 }
