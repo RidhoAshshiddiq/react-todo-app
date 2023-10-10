@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import React from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default {
-  plugins: [react()],
+  plugins: [React({ detectReact: true })],
 
   base: '/react-todo-app/',
 
