@@ -4,4 +4,5 @@ import React from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/react-todo-app/',
 })
