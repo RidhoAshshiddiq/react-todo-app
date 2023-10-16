@@ -4,8 +4,9 @@ import TodoApp from './App.jsx'
 
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <TodoApp />
-  </React.StrictMode>
-)
+  </React.StrictMode>,
+  document.getElementById('root')
+);
