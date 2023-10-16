@@ -9,6 +9,10 @@
   <body>
     <div id="root"></div>
     <!-- Update path to use the Vite-generated URL -->
+    <script type="module">
+    import.meta.env.VITE_PUBLIC_PATH = import.meta.env.VITE_PUBLIC_PATH || '/';
+    </script>
     <script type="module" src={import.meta.env.VITE_PUBLIC_PATH + 'src/main.jsx'}></script>
+
   </body>
 </html>
