@@ -9,11 +9,9 @@
   <body>
     <div id="root"></div>
     <!-- Update path to use the Vite-generated URL -->
-  <script type="module">
-  import.meta.env.VITE_PUBLIC_PATH = import.meta.env.VITE_PUBLIC_PATH || '/';
-  console.log('VITE_PUBLIC_PATH:', import.meta.env.VITE_PUBLIC_PATH);
-  </script>
-  <script type="module" src={import.meta.env.VITE_PUBLIC_PATH + 'src/main.jsx'}></script>
-
+    <script type="module">
+      import.meta.env.BASE_URL = import.meta.env.BASE_URL || '/';
+    </script>
+    <script type="module" src={import.meta.env.BASE_URL + 'src/main.jsx'}></script>
   </body>
 </html>
