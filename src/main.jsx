@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import TodoApp from './App.jsx';
 
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <TodoApp />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  </React.StrictMode>
+)
