@@ -1,27 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import TodoApp from './App.jsx'
 
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <TodoApp />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
-
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import TodoApp from './App.jsx'
-
-// const rootElement = document.getElementById('root');
-
-// if (rootElement) {
-//   ReactDOM.createRoot(rootElement).render(
-//     <React.StrictMode>
-//       <TodoApp />
-//     </React.StrictMode>
-//   );
-// } else {
-//   console.error("Root element with ID 'root' not found.");
-// }
